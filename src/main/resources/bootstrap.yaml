@@ -1,0 +1,20 @@
+spring:
+  sleuth:
+    reactor:
+#      decorate-on-each: truez
+      decorate-on-each: false # this option fix error but lose useful functions.
+
+server:
+  port: 11140
+  error:
+    whitelabel:
+      enabled: false
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
