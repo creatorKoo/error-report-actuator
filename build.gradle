@@ -10,6 +10,7 @@ sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
+    maven { url 'https://repo.spring.io/snapshot' }
 }
 
 ext {
@@ -18,7 +19,12 @@ ext {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation ('org.springframework.boot:spring-boot-starter-webflux')
+    {
+        dependencies {
+            implementation ('io.projectreactor:reactor-core:3.3.3.BUILD-SNAPSHOT')
+        }
+    }
     implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
     implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
